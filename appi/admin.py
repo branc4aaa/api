@@ -3,4 +3,3 @@ from .models import Posts
 
 admin.site.register(Posts)
 
-# Register your models here.
