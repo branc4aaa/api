@@ -11,10 +11,9 @@
     </head>
     <body>
         <form method="post">{% csrf_token %}
-            <table>
-                {{ form.as_table }}
-                <button type="submit">Login</button>
-            </table>
+
+            {{ form.as_table }}
+            <button type="submit">Login</button>
         </form>
     </body>
 </html>

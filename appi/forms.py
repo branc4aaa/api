@@ -13,7 +13,8 @@ class RegistrationForm(UserCreationForm):
     username = forms.CharField(max_length=20)
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repetir contraseña', widget=forms.PasswordInput)
+    email = forms.EmailField(max_length=50)
 
     class Meta:
         model = User
-        fields = ["username", "password1", "password2"]
+        fields = ["username", "password1", "password2", "email"]

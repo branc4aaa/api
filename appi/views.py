@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import JsonResponse
+from django.shortcuts import render, redirect
+
 from appi.forms import RegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
@@ -19,9 +19,9 @@ def singupView(request):
             nuevo = User(username=username)
             nuevo.set_password(form.cleaned_data.get('password1'))
             nuevo.save()
-            return JsonResponse({'message': 'User registered successfully'})
+            return redirect('index')
         else:
-            return JsonResponse({'message': 'Registration failed'})
+            return render(request, "message.html", {'message': 'Registration failed'})
     form = RegistrationForm()
     return render(request, 'singup.html', {'form': form})
 
@@ -35,11 +35,19 @@ def loginView(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return JsonResponse({'message': f'Welcome {username}'})
+                return render(request, "message.html",{'message': f'Welcome {username}'})
             else:
-                return JsonResponse({'message': 'Invalid credentials'})
+                return render(request, "message.html",{'message': 'Invalid credentials'})
         else:
-            return JsonResponse({'message': 'Invalid credentials'})
+            return render(request, "message.html",{'message': 'Invalid credentials'})
         
     form = AuthenticationForm()
     return render(request, 'login.html', {'form':form})
+
+@login_required
+def profileView(request):
+    return render(request, 'profile.html')
+
+@login_required
+def postsView(request):
+    return render(request, 'posts.html')

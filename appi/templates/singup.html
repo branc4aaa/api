@@ -11,10 +11,9 @@
     </head>
     <body>
         <form action={% url "singup" %} method="post">{% csrf_token %}
-            <table>
-                {{ form.as_table }}
-                <button type="submit">register</button>
-            </table>
+            {{ form.as_table }}
+            <button type="submit">register</button>
+            
         </form>
     </body>
 </html>
