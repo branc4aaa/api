@@ -1,0 +1,7 @@
+{% extends "index.html" %}
+{% block repite %}
+<form action={% url "addPost" %} method='post'>{% csrf_token %}
+    {{ form.as_table }}
+    <input type='submit' value='Enviar'>
+</form>
+{% endblock  %}

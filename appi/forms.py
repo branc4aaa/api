@@ -9,12 +9,12 @@ class Postform(forms.Form):
     content = forms.CharField(max_length=10000)
     author = forms.CharField(max_length=30)
 
+
 class RegistrationForm(UserCreationForm):
-    username = forms.CharField(max_length=20)
-    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repetir contraseña', widget=forms.PasswordInput)
-    email = forms.EmailField(max_length=50)
+    email = forms.EmailField(required=True)
+    first_name = forms.CharField(max_length=30, required=False)
+    last_name = forms.CharField(max_length=30, required=False)
 
     class Meta:
         model = User
-        fields = ["username", "password1", "password2", "email"]
+        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']

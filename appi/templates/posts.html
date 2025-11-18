@@ -6,7 +6,8 @@
             <div class="card-body">
                 <h5 class="card-title">{{p.title}}</h5>
                 <p class="card-text">{{p.content}}</p>
-                <a href="{% url 'posts'%}">View All Posts</a>
+                <p class="card-text"><small class="text-muted">Posted by {{p.author}}</small></p>
+                
             </div>  
         </div>
     </div>
