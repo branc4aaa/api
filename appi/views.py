@@ -56,16 +56,12 @@ def postsView(request):
 @login_required
 def addPost(request):
     if request.method == 'POST':
-        form = Postform(request.POST)
+        form = Postform(request.POST, request.FILES)
         if form.is_valid():
-            title = form.cleaned_data.get('title')
-            content = form.cleaned_data.get('content')
-            author = form.cleaned_data.get('author')
-            image = form.cleaned_data.get('image')
-            new_post = Posts(title=title, content=content, author=author, image=image)
-            new_post.save()
+            form.save() 
             return redirect('posts')
         else:
             return render(request, "message.html", {'message': 'Post creation failed'})
+    
     form = Postform()
     return render(request, 'post.html', {'form': form})
