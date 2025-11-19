@@ -61,7 +61,8 @@ def addPost(request):
             title = form.cleaned_data.get('title')
             content = form.cleaned_data.get('content')
             author = form.cleaned_data.get('author')
-            new_post = Posts(title=title, body=content, author=author)
+            image = form.cleaned_data.get('image')
+            new_post = Posts(title=title, content=content, author=author, image=image)
             new_post.save()
             return redirect('posts')
         else:

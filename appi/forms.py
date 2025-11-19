@@ -1,13 +1,13 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from appi.models import Posts as Post
 
-class Postform(forms.Form):
+class Postform(forms.ModelForm):
 
-    title = forms.CharField(max_length=50)
-    title2 = forms.CharField(max_length=30)
-    content = forms.CharField(max_length=10000)
-    author = forms.CharField(max_length=30)
+    class Meta:
+        model = Post
+        fields = ['title', 'content', 'author', 'image']
 
 
 class RegistrationForm(UserCreationForm):
