@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block repite %}
+{%for p in posts%}
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{p.title}}</h5>
+                <p class="card-text">{{p.content}}</p>
+                <p class="card-text"><small class="text-muted">Posted by {{p.author}}</small></p>
+                {% if p.image %}
+                    <img src="{{ p.image.url }}" alt="Post Image" style="max-width: 100%; height: auto;">
+                {% endif %}
+            </div>  
+        </div>
+    </div>
+{%endfor%}
+{% endblock %}

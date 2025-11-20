@@ -1,19 +1,20 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from appi.models import Posts as Post
 
-class Postform(forms.Form):
+class Postform(forms.ModelForm):
 
-    title = forms.CharField(max_length=50)
-    title2 = forms.CharField(max_length=30)
-    content = forms.CharField(max_length=10000)
-    author = forms.CharField(max_length=30)
+    class Meta:
+        model = Post
+        fields = ['title', 'content', 'author', 'image']
+
 
 class RegistrationForm(UserCreationForm):
-    username = forms.CharField(max_length=20)
-    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repetir contraseña', widget=forms.PasswordInput)
+    email = forms.EmailField(required=True)
+    first_name = forms.CharField(max_length=30, required=False)
+    last_name = forms.CharField(max_length=30, required=False)
 
     class Meta:
         model = User
-        fields = ["username", "password1", "password2"]
+        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
