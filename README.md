@@ -47,7 +47,6 @@ Copiar código
    python -m venv venv o python3 -m venv venv
    source venv/bin/activate  # o venv\Scripts\activate en Windows
    pip install -r requirements.txt
-   python manage.py makemigrations
    python manage.py migrate
    python manage.py runserver o python3 manage.py runserver
 
