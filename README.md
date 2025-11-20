@@ -1,6 +1,6 @@
 # API (Django Backend)
 
-Este es un backend en Django para manejar Posts, usuarios y carga de imágenes. Es parte de mi portfolio como desarrolladora backend.
+Este es un backend en Django para manejar Posts, usuarios y carga de imágenes. Es parte de mi portfolio como desarrollador backend.
 
 ---
 
@@ -19,11 +19,11 @@ Este es un backend en Django para manejar Posts, usuarios y carga de imágenes. 
 
 api/
 ├── manage.py
-├── api/ # carpeta de configuración principal
+├── api/ 
 │ ├── settings.py
 │ ├── urls.py
 │ └── wsgi.py
-├── appi/ # tu app principal
+├── appi/ 
 │ ├── migrations/
 │ ├── models.py
 │ ├── views.py
@@ -31,7 +31,6 @@ api/
 │ └── templates/
 │ ├── index.html
 │ └── posts.html
-├── static/ # archivos estáticos (CSS, JS)
 └── media/ # imágenes u otros archivos subidos
 
 yaml
@@ -52,4 +51,16 @@ Copiar código
    python manage.py migrate
    python manage.py runserver o python3 manage.py runserver
 
+## Endpoints
 
+http://localhost:8000/index
+
+http://localhost:8000/index/singup/
+
+http://localhost:8000/index/login/
+
+http://localhost:8000/index/posts/
+
+http://localhost:8000/index/addpost/
+
+http://localhost:8000/index/logout/
